@@ -65,6 +65,33 @@ project "glfw"
 		{ 
             "_GLFW_WIN32",
             "_CRT_SECURE_NO_WARNINGS"
-		}
+        }
+        
+        filter "system:macosx"
+        systemversion "latest"
+        staticruntime "On"
+        
+        files
+        {
+            "src/cocoa_init.m",
+            "src/cocoa_time.c",
+            "src/cocoa_window.m",
+            "src/cocoa_monitor.m",
+            "src/cocoa_joystick.m",
+            "src/cocoa_joystick.h",
+            "src/cocoa_platform.h",
+            "src/egl_context.c",
+            "src/wgl_context.c",
+            "src/glx_context.c",
+            "src/egl_context.h",
+            "src/wgl_context.h",
+            "src/glx_context.h"
+        }
+
+        defines
+        {
+            "_GLFW_COCOA"
+        }      
+
     filter { "system:windows", "configurations:Release" }
         buildoptions "/MT"
